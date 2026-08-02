@@ -28,11 +28,17 @@
 }
 
 
+.color-picker {
+  width: 512px;
+  margin: auto;
+}
+
 .color-container {
   margin: auto;
   border: 2px solid;
-  width: 409px;
+  width: 100%;
   height: 150px;
+  box-sizing: border-box;
 }
 
 button{
@@ -40,7 +46,72 @@ button{
 }
 
 .button-container {
-  margin: 10px;
+  display: flex;
+  margin: 10px 0;
+}
+
+.button-container button {
+  flex: 1;
+  padding: 50px 0;
+}
+
+.color-dropdown {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.color-dropdown button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.color-dropdown-toggle {
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.color-dropdown-list {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.color-dropdown-option {
+  border: none;
+}
+
+.color-dropdown-option.is-selected {
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.color-dropdown-label {
+  flex: 1;
+}
+
+.color-dropdown-caret {
+  color: #555;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid #999;
 }
 
 .color-blue {
@@ -60,4 +131,8 @@ button{
 }
 .color-black {
   background-color: black;
+}
+
+.color-violet {
+  background-color: violet;
 }
