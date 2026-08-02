@@ -2,7 +2,7 @@ import React, { Component, useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const COLORS = ['black', 'blue', 'green', 'red', 'yellow'];
+const COLORS = ['black', 'blue', 'green', 'red', 'yellow', 'violet'];
 
 const capitalize = (value) => value.charAt(0).toUpperCase() + value.slice(1);
 
@@ -82,7 +82,8 @@ class ColorPicker extends Component {
           <button className="color-blue"   onClick={() => this.setState({ color: 'blue'})}></button>
           <button className="color-green"  onClick={() => this.setState({ color: 'green'})}></button>
           <button className="color-red"    onClick={() => this.setState({ color: 'red'})}></button>
-          <button className="color-yellow" onClick={() => this.setState({ color: 'yellow'})}></button>          
+          <button className="color-yellow" onClick={() => this.setState({ color: 'yellow'})}></button>
+          <button className="color-violet" onClick={() => this.setState({ color: 'violet'})}></button>
         </div>
         <ColorContainer color={this.state.color}/>
       </div>
