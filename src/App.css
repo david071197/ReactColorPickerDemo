@@ -43,6 +43,64 @@ button{
   margin: 10px;
 }
 
+.color-dropdown {
+  position: relative;
+  width: 220px;
+  margin: 20px auto 0;
+  text-align: left;
+}
+
+.color-dropdown button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 10px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.color-dropdown-toggle {
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.color-dropdown-list {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.color-dropdown-option {
+  border: none;
+}
+
+.color-dropdown-option.is-selected {
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.color-dropdown-label {
+  flex: 1;
+}
+
+.color-dropdown-caret {
+  color: #555;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid #999;
+}
+
 .color-blue {
   background-color: blue;
 }
