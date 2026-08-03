@@ -1,8 +1,24 @@
-import React, { Component, useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const COLORS = ['black', 'blue', 'green', 'red', 'yellow', 'violet'];
+const COLORS = [
+  'black',
+  'blue',
+  'green',
+  'red',
+  'yellow',
+  'violet',
+  'brown',
+];
+
+const BUTTON_COLORS = COLORS.filter(
+  (color) => color !== 'black'
+);
 
 const capitalize = (value) => value.charAt(0).toUpperCase() + value.slice(1);
 
@@ -66,43 +82,44 @@ function ColorDropdown({color, onChange}) {
   );
 }
 
-class ColorPicker extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: "black"
-    }
-  }
+function ColorPicker() {
+  const [color, setColor] = useState('black');
 
-  render() {
-    return(
-      <div className="color-picker">
-        <ColorDropdown color={this.state.color} onChange={(color) => this.setState({ color })}/>
-        <div className="button-container">
-          <button className="color-blue"   onClick={() => this.setState({ color: 'blue'})}></button>
-          <button className="color-green"  onClick={() => this.setState({ color: 'green'})}></button>
-          <button className="color-red"    onClick={() => this.setState({ color: 'red'})}></button>
-          <button className="color-yellow" onClick={() => this.setState({ color: 'yellow'})}></button>
-          <button className="color-violet" onClick={() => this.setState({ color: 'violet'})}></button>
-        </div>
-        <ColorContainer color={this.state.color}/>
+  return (
+    <div className="color-picker">
+      <ColorDropdown
+        color={color}
+        onChange={setColor}
+      />
+      <div className="button-container">
+        {BUTTON_COLORS.map((option) => (
+          <button
+            key={option}
+            className={"color-" + option}
+            aria-label={capitalize(option)}
+            onClick={() => setColor(option)}
+          ></button>
+        ))}
       </div>
-    )
-  }
+      <ColorContainer color={color}/>
+    </div>
+  );
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Color Picker Challange</p>
-        </header>
-        <ColorPicker />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img
+          src={logo}
+          className="App-logo"
+          alt="logo"
+        />
+        <p>Color Picker Challange</p>
+      </header>
+      <ColorPicker />
+    </div>
+  );
 }
 
 export default App;
