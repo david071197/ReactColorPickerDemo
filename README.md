@@ -111,8 +111,9 @@ npm run preview   # serves build/ on a local port
 
 ```jsx
 // Simplified: state lives in the parent, children receive props
-<ColorDropdown color={this.state.color} onChange={(color) => this.setState({ color })} />
-<ColorContainer color={this.state.color} />
+const [color, setColor] = useState('black');
+<ColorDropdown color={color} onChange={setColor} />
+<ColorContainer color={color} />
 ```
 
 Colors are applied via CSS classes (`color-blue`, `color-green`, …) defined in `src/App.css`, so adding a color means adding it to the `COLORS` list in `src/App.jsx` plus a matching CSS class.
